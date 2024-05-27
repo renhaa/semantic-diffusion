@@ -1,0 +1,45 @@
+name: research
+channels:
+  - pytorch
+  - conda-forge
+  
+dependencies:
+  - nvidia::cudatoolkit=11.3
+  - python=3.8
+  - pytorch::pytorch
+  - torchvision
+  - torchaudio
+  - transformers
+  - pytorch-lightning
+  - nb_conda_kernels 
+  - ipykernel 
+  - ipywidgets
+  - tensorflow 
+  - dlib 
+  - tqdm 
+  - matplotlib 
+  - numpy 
+  - opencv 
+  - imutils
+  - functorch
+  - scikit-learn
+  - seaborn
+  - easydict
+  - jupyter
+  - diffusers==0.12.1
+  - jupyterlab
+  - ninja
+  - pip
+  - pip:
+    - mediapipe
+    - ninja
+    - tntorch
+    - roma
+    - functorch
+    - protobuf==3.20
+    - gdown
+    - wget
+    - accelerate
+    - pyrallis
+
+

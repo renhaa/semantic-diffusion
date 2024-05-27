@@ -1,0 +1,339 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>Discovering Interpretable Directions in the Semantic Latent Space of Diffusion Models</title>
+	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Discovering Interpretable Directions in the Semantic Latent Space of Diffusion Models." />
+	<meta property="og:description" content="Paper description." />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+		src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:36px">Discovering Interpretable Directions in the Semantic Latent Space of Diffusion Models</span>
+		<table align=center width=600px>
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=CVtIJo4AAAAJ">Ren&#233 Haas</a></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=YG_1cdEAAAAJ">Inbar Huberman-Spiegelglas</a></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=sqOg-58AAAAJ">Rotem Mulayoff</a></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.de/citations?user=kSuLm58AAAAJ">Stella Gra&#223hof</a></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=P7lhQ30AAAAJ">Sami S. Brandt</a></span>
+						</center>
+					</td>					
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=n2EbR2cAAAAJ">Tomer Michaeli</a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<table align=center width=250px>
+				<tr>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href='https://arxiv.org/abs/2303.11073'>[Paper]</a></span>
+						</center>
+					</td>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href='https://github.com/renhaa/semantic-ddm-official-beta'>[GitHub]</a></span><br>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</table>
+	</center>
+
+	<center>
+		<table align=center width=850px>
+			<tr>
+				<td width=260px>
+					<center>
+						<img class="round" style="width:800px" src="./resources/teaser.png"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+		<!-- <table align=center width=850px>
+			<tr>
+				<td>
+					This was a template originally made for <a href="http://richzhang.github.io/colorization/">Colorful Image Colorization</a>. The code can be found in this <a href="https://github.com/richzhang/webpage-template">repository</a>.
+				</td>
+			</tr>
+		</table> -->
+	</center>
+	<br>	
+	<hr>
+	
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				Denoising Diffusion Models (DDMs) have emerged as a strong competitor to Generative Adversarial Networks (GANs).
+				However, despite their widespread use in image synthesis and editing applications, their latent space is still not as well understood. Recently, a semantic latent space for DDMs, coined `$h$-space', was shown to facilitate semantic image editing in a way reminiscent of GANs. The $h$-space is comprised of the bottleneck activations in the DDM's denoiser across all timesteps of the diffusion process. In this paper, we explore the properties of $h$-space and propose several novel methods for finding meaningful semantic directions within it. We start by studying unsupervised methods for revealing interpretable semantic directions in pretrained DDMs. Specifically, we show that global latent directions emerge as the principal components in the latent space. Additionally, we provide a novel method for discovering image-specific semantic directions by spectral analysis of the Jacobian of the denoiser w.r.t.\@ the latent code. 
+				Next, we extend the analysis by finding directions in a supervised fashion in unconditional DDMs.
+				We demonstrate how such directions can be found by annotating generated samples with a domain-specific attribute classifier. 
+				We further show how to semantically disentangle the found direction by simple linear projection.
+				Our approaches are applicable without requiring any architectural modifications, text-based guidance, CLIP-based optimization, or model fine-tuning.
+			</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+	<table align=center width=850px>
+	<center><h1> Unsupervised Directions </h1></center> 
+	<p align="center">
+		<iframe width="800" height="575" src="https://www.youtube.com/embed/_2DIXcuPBNs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+	</p>
+	<tr>
+		<td width=260px>
+			<b>Unsupervised image-specific edits.</b> 
+			Spectral analysis of the Jacobian of the denoising U-Net yields directions corresponding to localized changes in the generated image, e.g., opening/closing of the eyes and mouth, raising of the eyebrows and changing the gaze direction.
+		</td>
+
+	</tr>
+	</table>
+
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Attribute Manipulation</h1></center>
+		<tr>
+			<td width=260px>
+				<center>
+					<img class="round" style="width:800px" src="./resources/single-attr.png"/>
+				</center>
+				<br>
+				<b>Single attribute manipulation.</b> 
+					Using a domain specific binary attribute classifier as superviseion, we find linear directions in $h$-space corresponding to a variety of difference semantic edits.
+			</td>
+
+		</tr>
+	</table>
+	<br>
+
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Conditional Manipulation</h1></center>
+		<tr>
+			<td width=260px>
+				<center>
+					<img class="round" style="width:800px" src="./resources/conditional.png"/>
+				</center>
+
+				<b>Disentanglement of semantic directions.</b> 
+				Given a direction that is entangled with other attributes, we can create
+				a disentangled direction by removing the projection onto the undesired semantics from the original direction. 
+				The top row shows the original direction,
+				whereas the bottom row shows the disentangled direction.
+			</td>
+
+		</tr>
+	</table>
+
+
+
+	<br>	
+	<hr>
+	<table align=center width=450px>
+		<center><h1>Paper</h1></center>
+		<tr>
+			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
+			<td><span style="font-size:14pt">Ren&#233 Haas, Inbar Huberman-Spiegelglas, Rotem Mulayoff & Tomer Michaeli.<br>
+				<b>Discovering Interpretable Directions in the Semantic Latent Space of Diffusion Models.</b>
+				<br>
+				<!-- In Conference, 20XX.
+				<br> -->
+				(hosted on <a href="https://arxiv.org/abs/2303.11073">ArXiv</a>)
+				<br>
+				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
+				<span style="font-size:4pt"><a href=""><br></a>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<td><span style="font-size:14pt"><center>
+				<a href="./resources/bibtex.txt">[Bibtex]</a>
+			</center></td>
+		</tr>
+	</table>
+
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
+

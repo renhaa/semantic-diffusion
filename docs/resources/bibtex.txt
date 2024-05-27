@@ -1,0 +1,8 @@
+@misc{haas2023discovering,
+      title={Discovering Interpretable Directions in the Semantic Latent Space of Diffusion Models}, 
+      author={René Haas and Inbar Huberman-Spiegelglas and Rotem Mulayoff and Tomer Michaeli},
+      year={2023},
+      eprint={2303.11073},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
