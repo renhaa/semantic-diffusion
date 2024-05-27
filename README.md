@@ -199,34 +199,3 @@ If you use this code for your research, please cite our paper:
 ```
 
 
-## TODO
-
-
-### Paper (Camera ready)
-- [x] Set up the manuscript with the [FG2024](https://fg2024.ieee-biometrics.org/important-dates/) template. 
-Paper at synchronized [Github](https://github.com/renhaa/semantic-ddm-fg2024) and [Overleaf](https://www.overleaf.com/1386758368mcmpzbkymdgm#9bab9f) 
-- [ ] think about how to adress "particularly by adding quantitative evaluations and comparisons with existing methods", or comment in camera ready
-
-### Code
-- [x] Implement Incremental PCA
-- [ ] Run resonable size PCA experiement (eg. 50k samples, 50 inference steps, first 25 pcs.) (Inbar on tiras)
-- [ ] Implement algorithm 1 as it is described in the paper. (Inbar will run `algorithm1.py` on tiras) (try downscaling the output to see if we could enable alg1 to run on consumer hardware) 
-- [ ] Clean up code for supervised (René is on it)
-- [ ] Environment, we can provide venv environment in addition to the conda env.
-- [ ] fix incremental_pca.py dependency (rene doing  this)
-- [ ] add pyrallis to environment files
-
-### Github
-- [ ] Flesh out `README.md` (René)
-- [x] add reference to FG 
-- [x] Add `LICENCE.md`
-- [x] Sort  though which files should be released, done, followup with inbar! Should we give the anycost validation script. Is it good enough?
-### project page
-- [ ] add reference to FG 
-- [ ] currently hosted on itu.dk, my user may be removed soon, can we host on github?
-
-### Low priority
-- [ ] 4 column in Table x. Likely due to gender bias in the model (~75% sampled females). implement conditional sampling for the anycost experiement so we get a 50/50 male/female sampling. 
-Possibly add comment about this in paper 
-- [ ] add GUI  and/or huggingface spaces
-
