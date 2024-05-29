@@ -4,7 +4,7 @@
 
 
 <!-- [Project page](http://itu.dk/~renha/semantic-ddm-official-beta/docs/) | -->
-[Paper](https://arxiv.org/abs/2303.11073) |
+[Paper](https://brosdocs.net/fg2024/267.pdf) |
 [Demo](demo.ipynb) 
 
 <!-- [Poster](docs/resources/poster.pdf) | -->
@@ -27,7 +27,6 @@ conda env create -f environment/research.yml
 ```
 
 # Usage
-
 
 ### PCA
 
