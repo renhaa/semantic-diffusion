@@ -187,13 +187,10 @@ grid.save("docs/resources/supervised.png")
 ## Citation
 If you use this code for your research, please cite our paper:
 ```
-@misc{haas2023discovering,
+@inproceedings{haas2024discovering,
       title={Discovering Interpretable Directions in the Semantic Latent Space of Diffusion Models}, 
-      author={René Haas and Inbar Huberman-Spiegelglas and Rotem Mulayoff and Tomer Michaeli},
-      year={2023},
-      eprint={2303.11073},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      author={René Haas and Inbar Huberman-Spiegelglas and Rotem Mulayoff and Stella Graßhof and Sami S. Brandt and Tomer Michaeli},
+      year={2024}
 }
 ```
 
