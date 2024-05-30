@@ -190,7 +190,8 @@ If you use this code for your research, please cite our paper:
 @inproceedings{haas2024discovering,
       title={Discovering Interpretable Directions in the Semantic Latent Space of Diffusion Models}, 
       author={René Haas and Inbar Huberman-Spiegelglas and Rotem Mulayoff and Stella Graßhof and Sami S. Brandt and Tomer Michaeli},
-      year={2024}
+      year={2024},
+      booktitle={The 18th IEEE International Conference on Automatic Face and Gesture Recognition}
 }
 ```
 
